@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { ReactQueryProvider } from "@/providers/ReactQueryProvider";
-import MainNavbar from "@/components/layouts/MainNavbar";
+import MainHeader from "@/components/layouts/MainHeader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +37,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ReactQueryProvider>
-            <MainNavbar />
+            <MainHeader />
             <main className="w-full">{children}</main>
           </ReactQueryProvider>
         </ThemeProvider>
