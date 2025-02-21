@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { SquareArrowOutUpRight } from "lucide-react";
 
 export default function LandingPage() {
   return (
@@ -15,9 +17,17 @@ export default function LandingPage() {
         </h1>
         <p className="max-w-[600px] md:text-xl text-center lg:text-left text-slate-700 dark:text-slate-500">
           Whether you need a sturdy school bag, a sleek work backpack, or a
-          reliable travel companion, we&apos;ve got you covered. Explore our stylish
-          and durable collection today and carry comfort with confidence
+          reliable travel companion, we&apos;ve got you covered. Explore our
+          stylish and durable collection today and carry comfort with confidence
         </p>
+        <div className="flex justify-center lg:justify-start">
+          <Link href={"/products"}>
+            <span className="flex gap-2 text-yellow-600 font-bold">
+              <SquareArrowOutUpRight />
+              View our Products
+            </span>
+          </Link>
+        </div>
       </article>
     </section>
   );
