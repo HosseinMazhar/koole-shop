@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SquareArrowOutUpRight } from "lucide-react";
+import NewArrivalsSlider from "./NewArrivalsSlider";
 
 export default function LandingPage() {
   return (
@@ -24,7 +25,7 @@ export default function LandingPage() {
             confidence
           </p>
           <div className="flex justify-center lg:justify-start">
-            <Link href={"/products"} rel="preload">
+            <Link href={"/products"}>
               <span className="flex gap-2 text-yellow-600 font-bold">
                 <SquareArrowOutUpRight />
                 View our Products
@@ -33,8 +34,9 @@ export default function LandingPage() {
           </div>
         </article>
       </section>
-      <section className="w-full flex justify-center items-center gap-3">
-        <h2 className="font-semibold text-3xl">New Arrivals</h2>
+      <section className="w-full flex flex-col justify-center items-center gap-6">
+        <h2 className="font-semibold text-2xl">New Arrivals</h2>
+        <NewArrivalsSlider />
       </section>
     </div>
   );
