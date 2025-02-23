@@ -26,17 +26,13 @@ export default function LandingPage() {
           </p>
           <div className="flex justify-center lg:justify-start">
             <Link href={"/products"}>
-              <span className="flex gap-2 text-yellow-600 font-bold">
+              <span className="flex gap-2 text-yellow-600 hover:text-yellow-500 font-bold">
                 <SquareArrowOutUpRight />
                 View our Products
               </span>
             </Link>
           </div>
         </article>
-      </section>
-      <section className="w-full flex flex-col justify-center items-center gap-6">
-        <h2 className="font-semibold text-2xl">New Arrivals</h2>
-        <NewArrivalsSlider />
       </section>
     </div>
   );
