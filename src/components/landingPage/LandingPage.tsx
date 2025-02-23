@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SquareArrowOutUpRight } from "lucide-react";
-import NewArrivalsSlider from "./NewArrivalsSlider";
 
 export default function LandingPage() {
   return (
