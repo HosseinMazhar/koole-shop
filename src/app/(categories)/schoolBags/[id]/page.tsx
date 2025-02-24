@@ -80,15 +80,15 @@ export default function PencilCaseById() {
             </div>
           )}
           {foundedProduct && (
-            <button className="w-full flex justify-center items-center gap-2">
-              <p className="w-full text-lg font-bold text-right">
+            <div className="w-full flex justify-center lg:justify-end items-center gap-2 mt-3">
+              <p className="text-lg font-bold text-right">
                 ${price || foundedProduct.basePrice}
               </p>
-              <div className="flex justify-center items-center px-2 py-2 bg-blue-500 hover:bg-blue-400 text-white rounded-lg cursor-pointer">
+              <button className="flex justify-center items-center px-2 py-2 bg-blue-500 hover:bg-blue-400 text-white rounded-lg cursor-pointer">
                 <Plus size={20} />
                 <ShoppingCart size={20} />
-              </div>
-            </button>
+              </button>
+            </div>
           )}
         </div>
       </div>
