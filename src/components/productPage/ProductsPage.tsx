@@ -1,6 +1,6 @@
 "use client";
 
-import { useProductStore } from "@/store/ProductStore";
+import { useProductStore } from "@/store/useProductStore";
 import {
   Select,
   SelectContent,
@@ -20,7 +20,7 @@ interface ProductPageProps {
 const ProductsPage: React.FC<ProductPageProps> = ({ category }) => {
   const { products } = useProductStore();
   const [sortOption, setSortOption] = useState<
-    "all" | "mostFavourite" | "mostExpensive"
+    "all" | "mostFavorite" | "mostExpensive"
   >("all");
 
   const sortedProducts = useMemo(() => {
@@ -34,12 +34,8 @@ const ProductsPage: React.FC<ProductPageProps> = ({ category }) => {
     const sorted = [...filteredProducts];
 
     if (sortOption === "mostExpensive") {
-      sorted.sort(
-        (a, b) =>
-          Math.max(...b.variants.map((v) => v.price)) -
-          Math.max(...a.variants.map((v) => v.price))
-      );
-    } else if (sortOption === "mostFavourite") {
+      sorted.sort((a, b) => b.basePrice - a.basePrice);
+    } else if (sortOption === "mostFavorite") {
       sorted.sort((a, b) => b.score - a.score);
     }
 
@@ -58,7 +54,7 @@ const ProductsPage: React.FC<ProductPageProps> = ({ category }) => {
         </h1>
         <Select
           value={sortOption}
-          onValueChange={(e: "all" | "mostFavourite" | "mostExpensive") => {
+          onValueChange={(e: "all" | "mostFavorite" | "mostExpensive") => {
             setSortOption(e);
           }}
         >
@@ -70,7 +66,7 @@ const ProductsPage: React.FC<ProductPageProps> = ({ category }) => {
               <SelectLabel>Sorting Categories</SelectLabel>
               <SelectItem value="all">All</SelectItem>
               <SelectItem value="mostExpensive">Most Expensive</SelectItem>
-              <SelectItem value="mostFavourite">Favourites</SelectItem>
+              <SelectItem value="mostFavorite">Favorites</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
@@ -81,8 +77,9 @@ const ProductsPage: React.FC<ProductPageProps> = ({ category }) => {
             <ProductCard
               image={product.images[0]}
               title={product.title}
-              price={120}
+              price={product.basePrice}
               score={product.score}
+              id={product.id}
             />
           </div>
         ))}

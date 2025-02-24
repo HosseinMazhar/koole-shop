@@ -21,6 +21,7 @@ export type ProductT = {
   type: "schoolBag" | "pencilCase";
   score: number;
   votes: number;
+  basePrice: number;
 };
 
 const products: ProductT[] = [
@@ -45,11 +46,12 @@ const products: ProductT[] = [
     isNew: true,
     type: "schoolBag",
     variants: [
-      { color: "red", size: "M", price: 110 },
-      { color: "red", size: "L", price: 110 },
-      { color: "blue", size: "L", price: 120 },
-      { color: "blue", size: "M", price: 120 },
+      { color: "#897822", size: "M", price: 110 },
+      { color: "#897822", size: "L", price: 110 },
+      { color: "#856547", size: "L", price: 120 },
+      { color: "#856547", size: "M", price: 120 },
     ],
+    basePrice: 110
   },
   {
     id: 2,
@@ -73,11 +75,12 @@ const products: ProductT[] = [
     isNew: true,
     type: "schoolBag",
     variants: [
-      { color: "red", size: "M", price: 110 },
-      { color: "blue", size: "L", price: 120 },
-      { color: "red", size: "L", price: 120 },
-      { color: "blue", size: "L", price: 110 },
+      { color: "#897822", size: "M", price: 310 },
+      { color: "#856547", size: "L", price: 320 },
+      { color: "#897822", size: "L", price: 320 },
+      { color: "#856547", size: "M", price: 310 },
     ],
+    basePrice: 310
   },
   {
     id: 3,
@@ -96,11 +99,12 @@ const products: ProductT[] = [
     isNew: true,
     type: "pencilCase",
     variants: [
-      { color: "red", size: "M", price: 110 },
-      { color: "blue", size: "L", price: 120 },
-      { color: "red", size: "L", price: 120 },
-      { color: "blue", size: "L", price: 110 },
+      { color: "#897822", size: "M", price: 156 },
+      { color: "#856547", size: "L", price: 176 },
+      { color: "#897822", size: "L", price: 176 },
+      { color: "#856547", size: "M", price: 156 },
     ],
+    basePrice: 156
   },
   {
     id: 4,
@@ -119,11 +123,12 @@ const products: ProductT[] = [
     isNew: true,
     type: "pencilCase",
     variants: [
-      { color: "red", size: "M", price: 110 },
-      { color: "blue", size: "L", price: 120 },
-      { color: "red", size: "L", price: 120 },
-      { color: "blue", size: "L", price: 110 },
+      { color: "#897822", size: "M", price: 130 },
+      { color: "#856547", size: "L", price: 150 },
+      { color: "#897822", size: "L", price: 150 },
+      { color: "#856547", size: "M", price: 130 },
     ],
+    basePrice: 130
   },
   {
     id: 5,
@@ -142,11 +147,12 @@ const products: ProductT[] = [
     isNew: true,
     type: "pencilCase",
     variants: [
-      { color: "red", size: "M", price: 110 },
-      { color: "blue", size: "L", price: 120 },
-      { color: "red", size: "L", price: 120 },
-      { color: "blue", size: "L", price: 110 },
+      { color: "#897822", size: "M", price: 810 },
+      { color: "#856547", size: "L", price: 820 },
+      { color: "#897822", size: "L", price: 820 },
+      { color: "#856547", size: "M", price: 810 },
     ],
+    basePrice: 810
   },
   {
     id: 6,
@@ -165,11 +171,12 @@ const products: ProductT[] = [
     isNew: true,
     type: "pencilCase",
     variants: [
-      { color: "red", size: "M", price: 110 },
-      { color: "blue", size: "L", price: 120 },
-      { color: "red", size: "L", price: 120 },
-      { color: "blue", size: "L", price: 110 },
+      { color: "#897822", size: "M", price: 10 },
+      { color: "#856547", size: "L", price: 20 },
+      { color: "#897822", size: "L", price: 20 },
+      { color: "#856547", size: "M", price: 10 },
     ],
+    basePrice: 10
   },
 ];
 
