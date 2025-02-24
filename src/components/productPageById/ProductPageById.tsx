@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import ImagesDisplay from "../common/ImagesDisplay";
 import { Plus, ShoppingCart } from "lucide-react";
+import FeedBack from "./FeedBack";
 
 export default function ProductsPageById() {
   const { id } = useParams();
@@ -92,6 +93,7 @@ export default function ProductsPageById() {
           )}
         </div>
       </div>
+      {foundedProduct && <FeedBack id={foundedProduct.id} comments={foundedProduct.comments} />}
     </div>
   );
 }

@@ -1,5 +1,5 @@
 type FeedbackT = {
-  id: number;
+  userName: string;
   text: string;
   score: number;
 };
@@ -38,10 +38,10 @@ const products: ProductT[] = [
     score: 4,
     votes: 50,
     comments: [
-      { id: 1, text: "Great quality!", score: 4 },
-      { id: 2, text: "not enough!", score: 2 },
-      { id: 3, text: "Bad!", score: 2 },
-      { id: 4, text: "", score: 2 },
+      { userName: "ali", text: "Great quality!", score: 4 },
+      { userName: "reza", text: "not enough!", score: 2 },
+      { userName: "hamid", text: "Bad!", score: 2 },
+      { userName: "sara", text: "", score: 2 },
     ],
     isNew: true,
     type: "schoolBag",
@@ -51,7 +51,7 @@ const products: ProductT[] = [
       { color: "#856547", size: "L", price: 120 },
       { color: "#856547", size: "M", price: 120 },
     ],
-    basePrice: 110
+    basePrice: 110,
   },
   {
     id: 2,
@@ -67,10 +67,10 @@ const products: ProductT[] = [
     score: 3,
     votes: 1000,
     comments: [
-      { id: 1, text: "Great quality!", score: 4 },
-      { id: 2, text: "not enough!", score: 2 },
-      { id: 3, text: "Bad!", score: 2 },
-      { id: 4, text: "", score: 2 },
+      { userName: "ali", text: "Great quality!", score: 4 },
+      { userName: "reza", text: "not enough!", score: 2 },
+      { userName: "hamid", text: "Bad!", score: 2 },
+      { userName: "sara", text: "", score: 2 },
     ],
     isNew: true,
     type: "schoolBag",
@@ -80,7 +80,7 @@ const products: ProductT[] = [
       { color: "#897822", size: "L", price: 320 },
       { color: "#856547", size: "M", price: 310 },
     ],
-    basePrice: 310
+    basePrice: 310,
   },
   {
     id: 3,
@@ -91,10 +91,10 @@ const products: ProductT[] = [
     score: 4,
     votes: 354,
     comments: [
-      { id: 1, text: "Great quality!", score: 4 },
-      { id: 2, text: "not enough!", score: 2 },
-      { id: 3, text: "Bad!", score: 2 },
-      { id: 4, text: "", score: 2 },
+      { userName: "ali", text: "Great quality!", score: 4 },
+      { userName: "reza", text: "not enough!", score: 2 },
+      { userName: "hamid", text: "Bad!", score: 2 },
+      { userName: "sara", text: "", score: 2 },
     ],
     isNew: true,
     type: "pencilCase",
@@ -104,7 +104,7 @@ const products: ProductT[] = [
       { color: "#897822", size: "L", price: 176 },
       { color: "#856547", size: "M", price: 156 },
     ],
-    basePrice: 156
+    basePrice: 156,
   },
   {
     id: 4,
@@ -115,10 +115,10 @@ const products: ProductT[] = [
     score: 1.8,
     votes: 420,
     comments: [
-      { id: 1, text: "Great quality!", score: 4 },
-      { id: 2, text: "not enough!", score: 2 },
-      { id: 3, text: "Bad!", score: 2 },
-      { id: 4, text: "", score: 2 },
+      { userName: "ali", text: "Great quality!", score: 4 },
+      { userName: "reza", text: "not enough!", score: 2 },
+      { userName: "hamid", text: "Bad!", score: 2 },
+      { userName: "sara", text: "", score: 2 },
     ],
     isNew: true,
     type: "pencilCase",
@@ -128,7 +128,7 @@ const products: ProductT[] = [
       { color: "#897822", size: "L", price: 150 },
       { color: "#856547", size: "M", price: 130 },
     ],
-    basePrice: 130
+    basePrice: 130,
   },
   {
     id: 5,
@@ -139,10 +139,10 @@ const products: ProductT[] = [
     score: 1.8,
     votes: 420,
     comments: [
-      { id: 1, text: "Great quality!", score: 4 },
-      { id: 2, text: "not enough!", score: 2 },
-      { id: 3, text: "Bad!", score: 2 },
-      { id: 4, text: "", score: 2 },
+      { userName: "ali", text: "Great quality!", score: 4 },
+      { userName: "reza", text: "not enough!", score: 2 },
+      { userName: "hamid", text: "Bad!", score: 2 },
+      { userName: "sara", text: "", score: 2 },
     ],
     isNew: true,
     type: "pencilCase",
@@ -152,7 +152,7 @@ const products: ProductT[] = [
       { color: "#897822", size: "L", price: 820 },
       { color: "#856547", size: "M", price: 810 },
     ],
-    basePrice: 810
+    basePrice: 810,
   },
   {
     id: 6,
@@ -163,10 +163,10 @@ const products: ProductT[] = [
     score: 4.3,
     votes: 256,
     comments: [
-      { id: 1, text: "Great quality!", score: 4 },
-      { id: 2, text: "not enough!", score: 2 },
-      { id: 3, text: "Bad!", score: 2 },
-      { id: 4, text: "", score: 2 },
+      { userName: "ali", text: "Great quality!", score: 4 },
+      { userName: "reza", text: "not enough!", score: 2 },
+      { userName: "hamid", text: "Bad!", score: 2 },
+      { userName: "sara", text: "", score: 2 },
     ],
     isNew: true,
     type: "pencilCase",
@@ -176,7 +176,7 @@ const products: ProductT[] = [
       { color: "#897822", size: "L", price: 20 },
       { color: "#856547", size: "M", price: 10 },
     ],
-    basePrice: 10
+    basePrice: 10,
   },
 ];
 
