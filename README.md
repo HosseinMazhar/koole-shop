@@ -13,4 +13,13 @@ A simple e-commerce app with dynamic features for a seamless shopping experience
 ## Installation 🛠  
 1. **Clone the repository:**  
    ```sh  
-   git clone https://github.com/your-username/koole-shop.git  
+   git clone https://github.com/your-username/koole-shop.git
+2. **Navigate to project folder:**  
+   ```sh  
+   cd koole-shop  
+3. **Install dependencies:**  
+   ```sh  
+   npm install 
+4. **Start the development server:**  
+   ```sh  
+   npm run dev
