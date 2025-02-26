@@ -12,10 +12,39 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
+import { Input } from "../ui/input";
+import { useEffect, useState } from "react";
+import { useProductStore } from "@/store/useProductStore";
+import { ProductT } from "@/constants/products";
+import Link from "next/link";
 
 export default function MainHeader() {
+  const [search, setSearch] = useState("");
+  const [searchResult, setSearchResult] = useState<ProductT[]>([]);
+  const { products } = useProductStore();
   const { shoppingCards } = useShoppingCardStore();
   const router = useRouter();
+
+  console.log(searchResult);
+
+  useEffect(() => {
+    if (search) {
+      setSearchResult(
+        products.filter((product) =>
+          product.title.toLowerCase().includes(search)
+        )
+      );
+    } else {
+      setSearchResult([]);
+    }
+  }, [search]);
 
   return (
     <nav className="w-full h-[80px] bg-neutral-100 dark:bg-neutral-900 flex justify-between items-center px-5 border-b border-neutral-200 dark:border-neutral-800 shadow-lg sticky top-0 z-[1000]">
@@ -49,9 +78,39 @@ export default function MainHeader() {
         </Button>
       </div>
       <div className="flex gap-2">
-        <Button variant="secondary" size={"icon"}>
-          <Search />
-        </Button>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button variant="secondary" size={"icon"}>
+              <Search />
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-[500px]">
+            <DialogHeader>
+              <DialogTitle>Search Product</DialogTitle>
+            </DialogHeader>
+            <div className="flex flex-col gap-2 w-full">
+              <Input
+                value={search}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                }}
+                placeholder="search something by name"
+                className="w-full"
+              />
+              <div className="w-full max-h-[300px] overflow-y-scroll flex flex-col justify-center items-center gap-2">
+                {searchResult.map((result) => (
+                  <Link
+                    href={`/${result.type}s/${result.id}`}
+                    key={result.id}
+                    className="w-full flex justify-start items-center"
+                  >
+                    {result.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
         <ModeToggle />
       </div>
     </nav>
