@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
+import { useProductStore } from "@/store/useProductStore";
+import { toast } from "sonner";
 
 interface comments {
   userName: string;
@@ -14,11 +16,40 @@ interface feedBackProps {
 }
 
 const FeedBack: React.FC<feedBackProps> = ({ id, comments }) => {
-  const [rating, setRating] = useState(null);
+  const addComment = useProductStore((state) => state.addComment);
+  const [rating, setRating] = useState(0);
   const [yourFeedBack, setYourFeedBack] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (rating === 0) {
+      toast.error("Error while sending feedback", {
+        description: "Score is required",
+      })
+      return;
+    }
+
+    const newComment = {
+      userName: "Sugimoto",
+      text: yourFeedBack,
+      score: rating,
+    };
+
+    addComment(id, newComment);
+    setYourFeedBack("");
+    setRating(0);
+    toast.success("Thanks", {
+      description: "Your feedback has been submitted"
+    })
+  };
+
   return (
     <div className="w-full flex flex-col justify-center items-center pb-10 px-10 gap-3">
-      <form className="w-full w-max-[600px] flex flex-col justify-center items-center gap-2">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full w-max-[600px] flex flex-col justify-center items-center gap-2"
+      >
         <Textarea
           value={yourFeedBack}
           onChange={(e) => setYourFeedBack(e.target.value)}

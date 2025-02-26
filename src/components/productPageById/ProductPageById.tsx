@@ -7,10 +7,13 @@ import { useEffect, useState } from "react";
 import ImagesDisplay from "../common/ImagesDisplay";
 import { Plus, ShoppingCart } from "lucide-react";
 import FeedBack from "./FeedBack";
+import { useShoppingCardStore } from "@/store/useShoppingCardStore";
+import { toast } from "sonner";
 
 export default function ProductsPageById() {
   const { id } = useParams();
   const { products } = useProductStore();
+  const { addCard } = useShoppingCardStore();
   const foundedProduct: ProductT | undefined = products.find(
     (product) => product.id == Number(id)
   );
@@ -85,7 +88,20 @@ export default function ProductsPageById() {
               <p className="text-lg font-bold text-right">
                 ${price || foundedProduct.basePrice}
               </p>
-              <button className="flex justify-center items-center px-2 py-2 bg-blue-500 hover:bg-blue-400 text-white rounded-lg cursor-pointer">
+              <button
+                onClick={() => {
+                  addCard(
+                    foundedProduct.id,
+                    foundedProduct.title,
+                    price || foundedProduct.basePrice,
+                    foundedProduct.images[0],
+                    selectedColor,
+                    selectedSize
+                  );
+                  toast.success(`${foundedProduct.title} has been added to your shopping cards`)
+                }}
+                className="flex justify-center items-center px-2 py-2 bg-blue-500 hover:bg-blue-400 text-white rounded-lg cursor-pointer"
+              >
                 <Plus size={20} />
                 <ShoppingCart size={20} />
               </button>
@@ -93,7 +109,9 @@ export default function ProductsPageById() {
           )}
         </div>
       </div>
-      {foundedProduct && <FeedBack id={foundedProduct.id} comments={foundedProduct.comments} />}
+      {foundedProduct && (
+        <FeedBack id={foundedProduct.id} comments={foundedProduct.comments} />
+      )}
     </div>
   );
 }
